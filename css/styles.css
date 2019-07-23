@@ -1,4 +1,12 @@
+body {
+
+background-color: lightgreen;
+
+
+}
+
 .title {
+
 background-color: pink;
 margin: 20px;
 padding: 10px;
@@ -7,6 +15,9 @@ text-align: center;
 }
 
 .list {
-  display: inline-table;
+  display: block;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
 
 }
