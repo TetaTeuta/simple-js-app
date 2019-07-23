@@ -20,8 +20,9 @@ var repository = [
 
 
 for (var i=0; i<repository.length;i++){
-  document.write(repository[i].name);
-  document.write(repository[i].height);
+  document.write("<h3><br> " + repository[i].name + "</h3>");
+
+  document.write('Height: ',repository[i].height);
 
   if (repository[i].height > 5){
     document.write(' - Wow, that\’s big!');

@@ -1,7 +1,12 @@
 .title {
-  float: right;
-  margin: 20px;
-  padding: 10px;
-  background-color: pink;
+background-color: pink;
+margin: 20px;
+padding: 10px;
+text-align: center;
+
+}
+
+.list {
+  display: inline-table;
 
 }
