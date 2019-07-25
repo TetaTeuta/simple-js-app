@@ -19,12 +19,27 @@ var repository = [
 ];
 
 
-for (var i=0; i<repository.length;i++){
-  document.write("<h3><br> " + repository[i].name + "</h3>");
+function loopBlockFunction(currentName){
+  document.write("<h3><br> " + currentName.name + "</h3>");
+  document.write("<p>" + 'Type: ' + currentName.height + "</p>")
 
-  document.write('Height: ',repository[i].height);
+  if (currentName.height > 5){
+    document.write("<p>" + ' - Wow, that\’s big!' + "</p>");
 
-  if (repository[i].height > 5){
-    document.write(' - Wow, that\’s big!');
 }
 }
+repository.forEach(loopBlockFunction);
+
+
+// for (var i=0; i<repository.length;i++){
+//   document.write("<h3><br> " + repository[i].name + "</h3>");
+//
+//   document.write('Height: ',repository[i].height);
+//   document.write("<p>" + 'Type: ',repository[i].types + "</p>");
+
+// //  if (repository[i].height > 5){
+//     document.write(' - Wow, that\’s big!');
+//
+// }
+
+// }

@@ -3,10 +3,25 @@ body {
 background-color: lightgreen;
 
 
+
+}
+
+h3 {
+  background-color: yellow;
+  display: block;
+  margin: auto;
+  text-align: center;
+
+
+}
+
+p{
+  background-color: lightblue;
+
+
 }
 
 .title {
-
 background-color: pink;
 margin: 20px;
 padding: 10px;
