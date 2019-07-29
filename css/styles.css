@@ -1,6 +1,6 @@
 body {
 
-background-color: lightgreen;
+  background-color: lightgreen;
 
 
 
@@ -17,20 +17,16 @@ h3 {
 
 p{
   background-color: lightblue;
+    display: block;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
 
 
 }
 
 .title {
-background-color: pink;
-margin: 20px;
-padding: 10px;
-text-align: center;
-
-}
-
-.list {
-  display: block;
+  background-color: pink;
   margin: 20px;
   padding: 10px;
   text-align: center;

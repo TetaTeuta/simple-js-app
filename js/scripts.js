@@ -1,3 +1,5 @@
+
+var pokemonRepository = (function () {
 var repository = [
 
   {name:"Bulbasaur",
@@ -14,32 +16,41 @@ var repository = [
 
   {name:"Lickilicky",
   height: 1.7,
-  types: ['Licking', 'Supersonic']},
+  types: ['Licking', 'Supersonic']}
 
 ];
 
+function add(pokemon) {
+  repository.push(pokemon);
+}
 
-function loopBlockFunction(currentName){
-  document.write("<h3><br> " + currentName.name + "</h3>");
-  document.write("<p>" + 'Type: ' + currentName.height + "</p>")
-
-  if (currentName.height > 5){
-    document.write("<p>" + ' - Wow, that\’s big!' + "</p>");
+function getAll() {
+  return repository;
 
 }
-}
-repository.forEach(loopBlockFunction);
+
+return {
+  add: add,
+  getAll: getAll
+
+};
+})();
+
+pokemonRepository.getAll().forEach(function(pokemon){ document.write('<p>'+ pokemon.name+'</p>')})
 
 
-// for (var i=0; i<repository.length;i++){
-//   document.write("<h3><br> " + repository[i].name + "</h3>");
+
+
+
+// function loopBlockFunction(currentName){
+//   document.write("<h3> " + currentName.name + "</h3>");
+//   document.write("<p>" + 'Type: ' + currentName.types + "</p>")
+//   document.write("<p>" + 'Height: ' + currentName.height + "</p>")
 //
-//   document.write('Height: ',repository[i].height);
-//   document.write("<p>" + 'Type: ',repository[i].types + "</p>");
-
-// //  if (repository[i].height > 5){
-//     document.write(' - Wow, that\’s big!');
 //
+//   if (currentName.height > 5){
+//     document.write("<p>" + ' - Wow, that\’s big!' + "</p>");
+//
+//   }
 // }
-
-// }
+// pokemonRepository.forEach(loopBlockFunction);
