@@ -41,14 +41,13 @@ p {
 .container {
   display: block;
   flex-direction: column;
-  margin: auto;
+  margin: auto;                     /* this holds list of pokemons*/
   padding: 10px;
-  max-width: 400px;
+  max-width: 500px;
 
 }
 
 .title {
-
 
   text-align: center;
   display: block;
@@ -56,14 +55,11 @@ p {
   min-width: 100px;
   padding: 10px;
   margin: auto;
-  margin border-bottom: 30px;
-
-
+  margin border-top: 30px;
 
 }
 
 .pokemon-list__item {
-
 
   text-decoration: none;
   list-style-type: none;
@@ -71,8 +67,6 @@ p {
   max-width: 400px;
   min-width: 100px;
   padding: 5px;
-
-
 
 }
 
@@ -94,42 +88,42 @@ p {
   cursor: pointer;
   opacity: 0.7;
   background-image:     linear-gradient(
-      to right,
-      #E7484F,
-      #E7484F 16.65%,
-      #F68B1D 16.65%,
-      #F68B1D 33.3%,
-      #FCED00 33.3%,
-      #FCED00 49.95%,
-      #009E4F 49.95%,
-      #009E4F 66.6%,
-      #00AAC3 66.6%,
-      #00AAC3 83.25%,
-      #732982 83.25%,
-      #732982 100%,
-      #E7484F 100%
+    to right,
+    #E7484F,
+    #E7484F 16.65%,
+    #F68B1D 16.65%,
+    #F68B1D 33.3%,
+    #FCED00 33.3%,
+    #FCED00 49.95%,
+    #009E4F 49.95%,
+    #009E4F 66.6%,
+    #00AAC3 66.6%,
+    #00AAC3 83.25%,
+    #732982 83.25%,
+    #732982 100%,
+    #E7484F 100%
 
 
 
     );
-  animation:slidebg 2s linear infinite;
+    animation:slidebg 2s linear infinite;
 
 
 
-}
-
-@keyframes slidebg {
-  to {
-    background-position:20vw;
   }
-}
 
-.follow{
-  margin-top: 40px;
-}
+  @keyframes slidebg {
+    to {
+      background-position:20vw;
+    }
+  }
 
-.follow a{
-  color: black;
-  padding: 8px 16px;
-  text-decoration: none;
-}
+  .follow{
+    margin-top: 40px;
+  }
+
+  .follow a{
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
