@@ -1,63 +1,89 @@
 
-var pokemonRepository = (function () {
-  var repository = [
+var pokemonRepository = (function () {   //start of IIFE
+  var repository = [];
 
-    {name:"Bulbasaur",
-    height: 7,
-    types: ['grass', 'poison']},
+   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-    {name:"Jigglypuff",
-    height: 0.5,
-    types: "Balloon"},
+   function add(item) {
+     repository.push(item);
+   };
 
-    {name:"Snorlax",
-    height: 2.1,
-    types: "Dozing"},
+   function getAll() {
+     return repository;
 
-    {name:"Lickilicky",
-    height: 1.7,
-    types: ['Licking', 'Supersonic']}
+   }
 
-  ];
-
-  function add(pokemon) {
-    repository.push(pokemon);
-  }
-
-  function getAll() {
-    return repository;
-
-  }
-
-  function addListItem(pokemon = {}) {
-    var pokemonList = document.querySelector('.pokemon-list');
-    var $listItem = document.createElement('li');   //create an li element that contains a button for each Pokémon
-    var button = document.createElement('button'); //creates the button element
-    $listItem.classList.add('pokemon-list__item');
-    button.innerText = pokemon.name;     //Set the innerText of the button to be the Pokémon's name
-    button.classList.add('button__style');  //Add a class to the button using the classList.add method
-    $listItem.appendChild(button);   //append the button to the list item as its child.
-    pokemonList.appendChild($listItem); //append the child in the repository pokemon
-    button.addEventListener('click', function(event) {
-      showDetails(pokemon); // creating the button as a function/event to be able to click in the future
-
+   // Loading data from external API
+function loadList() {
+  return fetch(apiUrl).then(function (response) {
+    return response.json();
+  }).then(function (json) {
+    json.results.forEach(function (item) {
+      var pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
     });
-  }
-  function showDetails(pokemon) {
-    console.log(pokemon);
-  }
+  }).catch(function (e) {
+    console.error(e);
+  })
+}
 
-  return {
-    add: add,
-    getAll: getAll,
-    addListItem: addListItem
-  };
-})();
+function addListItem(pokemon = {}) {
+  var pokemonList = document.querySelector('.pokemon-list');
+  var $listItem = document.createElement('li');   //create an li element that contains a button for each Pokémon
+  var button = document.createElement('button'); //creates the button element
+  $listItem.classList.add('pokemon-list__item');
+  button.innerText = pokemon.name;     //Set the innerText of the button to be the Pokémon's name
+  button.classList.add('button__style');  //Add a class to the button using the classList.add method
+  $listItem.appendChild(button);   //append the button to the list item as its child.
+  pokemonList.appendChild($listItem); //append the child in the repository pokemon
+  button.addEventListener('click', function(event) {
+    showDetails(pokemon); // creating the button as a function/event to be able to click in the future, if need more details.
 
-console.log(pokemonRepository.getAll());
-console.log(pokemonRepository.getAll());
+  });
+}
 
-//for each loop
-pokemonRepository.getAll().forEach(function(pokemon) {
-  pokemonRepository.addListItem(pokemon);
+function showDetails(item) {
+  pokemonRepository.loadDetails(item).then(function () {
+    console.log(item);   });
+}
+
+// Get the pokemon details from URL
+
+function loadDetails(item) {
+var url = item.detailsUrl;
+return fetch(url).then(function (response) {
+  return response.json();
+}).then(function (details) {
+  // Now we add the details to the item
+  item.imageUrl = details.sprites.front_default;
+  item.height = details.height;
+  item.types = Object.keys(details.types);
+}).catch(function (e) {
+  console.error(e);
+});
+}
+
+return {
+  loadList: loadList,
+  addListItem: addListItem,
+  showDetails: showDetails,
+  add: add,
+  getAll: getAll,
+  loadDetails: loadDetails
+};
+
+})();  //this one closes IIFE
+
+
+// console.log(pokemonRepository.getAll());
+// console.log(pokemonRepository.getAll());
+
+pokemonRepository.loadList().then(function() {
+//loop
+  pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.addListItem(pokemon);
+  });
 });
