@@ -40,13 +40,14 @@ p {
 }
 
 .container {
-  display: block;
-  flex-direction: column;
-  margin: auto;                     /* this holds list of pokemons*/
+  display: block;                 /* this holds list of pokemons*/
   padding: 10px;
-  max-width: 500px;
+  max-width: 1440px;
+  min-width: 200px;
+  margin:0;
 
 }
+
 
 .title {
 
@@ -70,6 +71,33 @@ p {
   padding: 5px;
 
 }
+
+#modal-container {
+
+  display: none;
+  position: relative; 
+
+}
+
+.modal-img {
+  margin-left: 20%;
+}
+
+#modal-container.is-visible {
+  
+  display: block;
+  background: #5ce7c8;
+  position:fixed; 
+  right: 50px; 
+  translateY(-50%);                      /* CSS for modal container */
+  padding: 10px;
+  border-radius: 10px;
+  transition: 0.4s opacity, 0.5s;
+  border: 10px solid gray;
+  z-index: 999; 
+ 
+}
+
 
 .button__style {
 
