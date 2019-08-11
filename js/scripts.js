@@ -24,6 +24,7 @@ function loadList() {
         detailsUrl: item.url
       };
       add(pokemon);
+      console.log(item);                                // Ex 1.7 - first one that I forgot
     });
   }).catch(function (e) {
     console.error(e);
@@ -68,6 +69,7 @@ return fetch(url).then(function (response) {
 function showDetails(item) {
   pokemonRepository.loadDetails(item).then(function () {
     showModal(item);
+    console.log(item);                                  // Ex 1.7 - second one that I forgot
       });
 
 }
