@@ -75,7 +75,7 @@ p {
 #modal-container {
 
   display: none;
-  position: relative; 
+  position: absolute;    /* CSS for whole container */
 
 }
 
@@ -88,8 +88,9 @@ p {
   display: block;
   background: #5ce7c8;
   position:fixed; 
+  justify-content: space-between;
   right: 50px; 
-  translateY(-50%);                      /* CSS for modal container */
+  translateY(-50%);                      /* CSS for card */
   padding: 10px;
   border-radius: 10px;
   transition: 0.4s opacity, 0.5s;
@@ -97,6 +98,8 @@ p {
   z-index: 999; 
  
 }
+
+
 
 
 .button__style {

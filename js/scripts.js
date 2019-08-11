@@ -46,12 +46,7 @@ function addListItem(pokemon = {}) {
   });
 }
 
-function showDetails(item) {
-  pokemonRepository.loadDetails(item).then(function () {
-    showModal(item);
-      });
 
-}
 
 // Get the pokemon details from URL
 
@@ -68,6 +63,13 @@ return fetch(url).then(function (response) {
 }).catch(function (e) {
   console.error(e);
 });
+}
+
+function showDetails(item) {
+  pokemonRepository.loadDetails(item).then(function () {
+    showModal(item);
+      });
+
 }
 
 // Creating modal content
@@ -137,7 +139,7 @@ if (
 });
 
 // Hides modal if clicked outside of it
-var $modalContainer = document.querySelector('#modal-container');
+var $modalContainer = document.querySelector('.pokemon-list');
 $modalContainer.addEventListener('click', (e) => {
   var target = e.target;
   if (target === $modalContainer) {
