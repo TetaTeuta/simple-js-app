@@ -24,7 +24,7 @@ function loadList() {
         detailsUrl: item.url
       };
       add(pokemon);
-      console.log(item);                                // Ex 1.7 - first one that I forgot
+      console.log(item);                                
     });
   }).catch(function (e) {
     console.error(e);
@@ -69,7 +69,8 @@ return fetch(url).then(function (response) {
 function showDetails(item) {
   pokemonRepository.loadDetails(item).then(function () {
     showModal(item);
-    console.log(item);                                  // Ex 1.7 - second one that I forgot
+    console.log(item);   
+                                  
       });
 
 }
@@ -77,6 +78,8 @@ function showDetails(item) {
 // Creating modal content
 function showModal(item) {
   var $modalContainer = document.querySelector('#modal-container');
+  
+   
 
   // Clearing all existing modal content
   $modalContainer.innerHTML = '';
@@ -119,6 +122,8 @@ function showModal(item) {
 
   // adds class to show the modal
   $modalContainer.classList.add('is-visible');
+
+  
 
 }
 
@@ -165,10 +170,15 @@ return {
 
 
 
-
 pokemonRepository.loadList().then(function() {
 
   pokemonRepository.getAll().forEach(function(pokemon){          //loop
     pokemonRepository.addListItem(pokemon); 
   });
 });
+
+
+
+
+
+
